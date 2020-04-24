@@ -52,11 +52,13 @@ const styles = StyleSheet.create({
       color :  '#EEEEEE' ,
       textAlign : 'center' ,
       fontWeight : 'bold' ,
-      paddingTop : 20
+      paddingTop : 20 ,
+      fontFamily : 'ProximaNovaA-light'
     },
     footer : {
       color : '#EEEEEE' , 
-      fontWeight : 'bold',
-      paddingBottom : 30 
+      fontWeight : 'normal',
+      paddingBottom : 30 ,
+      fontFamily : 'ProximaNovaA-thin'
     }
   });
