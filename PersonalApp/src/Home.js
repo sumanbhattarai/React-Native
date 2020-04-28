@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHome , faSuitcase , faEnvelope , faEdit } from '@fortawesome/free-solid-svg-icons'
-import HomeScreen from './HomeScreen' 
-import PortfolioScreen from './PortfolioScreen'
-import BlogScreen from './BlogScreen'
-import ContactScreen from './ContactScreen'
+import HomeScreen from './screens/HomeScreen' 
+import PortfolioScreen from './screens/PortfolioScreen'
+import BlogScreen from './screens/BlogScreen'
+import ContactScreen from './screens/ContactScreen'
 
 const Tab = createMaterialBottomTabNavigator();
 

@@ -1,5 +1,6 @@
 import React from 'react' ;
 import {View , Text , StyleSheet , Image , ActivityIndicator , StatusBar} from 'react-native' ;
+import ImageAvatar from './ImageAvatar';
 
 export default class SplashScreen extends React.Component{
     render(){
@@ -9,9 +10,10 @@ export default class SplashScreen extends React.Component{
                 <View style={ styles.mainBox}>
                     <View></View>
                     <View>
-                        <View style={styles.imageBox}>
-                            <Image style={styles.myImage} source={require('../assets/images/me.png')} />
-                        </View>
+                        {/* <View style={styles.imageBox}>
+                            <Image style={styles.myImage} source={require('../assets/images/sumancartoon.jpg')} />
+                        </View> */}
+                        <ImageAvatar/>                        
                         <View style={{marginTop : 20}}>
                             <ActivityIndicator size="small" color="#EEEEEE" />
                             <Text style={styles.loadingText}>Please wait ...</Text>
@@ -36,21 +38,21 @@ const styles = StyleSheet.create({
       alignItems : 'center' , 
       backgroundColor : '#081232'
     },
-    imageBox: {
-        width : 100 ,
-        height : 100 ,
-        borderRadius : 100,
-        borderWidth : 5,
-        borderColor : '#192B4B',
-        backgroundColor : '#ffffff' ,
-        position : 'relative' ,
-        overflow : 'hidden'
-    },
-    myImage : {
-        width : '100%' ,
-        height : '100%' ,
+    // imageBox: {
+    //     width : 100 ,
+    //     height : 100 ,
+    //     borderRadius : 100,
+    //     borderWidth : 5,
+    //     borderColor : '#192B4B',
+    //     backgroundColor : '#ffffff' ,
+    //     position : 'relative' ,
+    //     overflow : 'hidden'
+    // },
+    // myImage : {
+    //     width : '100%' ,
+    //     height : '100%' ,
         
-    },
+    // },
     loadingText : {
       color :  '#EEEEEE' ,
       textAlign : 'center' ,
