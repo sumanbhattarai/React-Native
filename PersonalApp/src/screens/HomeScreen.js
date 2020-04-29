@@ -1,21 +1,12 @@
-import React from 'react';
-import { View, Text, StyleSheet} from 'react-native';
-import Introduction from '../components/Introduction';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import React from 'react'
+import { View, ScrollView, Text, StyleSheet} from 'react-native'
+import Introduction from '../components/Introduction'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import About from '../components/About'
+import EducationTimeline from '../components/EducationTimeline'
+import SocialLinks from '../components/SocialLinks'
 
 const Tab = createMaterialTopTabNavigator();
-
-function About(){
-    return(
-        <Text>About Sec</Text>
-    )
-}
-
-function Skill(){
-    return(
-        <Text>Skill Sec</Text>
-    )
-}
 
 export default class HomeScreen extends React.Component {
     render(){
@@ -24,13 +15,13 @@ export default class HomeScreen extends React.Component {
                 <Introduction/>
                 <Tab.Navigator   
                     tabBarOptions={{
-                        labelStyle: { fontSize: 12 , color : '#081232' },
+                        labelStyle: { fontSize: 12 , color : '#081232' , fontFamily : 'ProximaNovaA-Bold' },
                         style: { backgroundColor: '#eeeeee' },
                         indicatorStyle : { backgroundColor :'#081232' }
                 }}>
                     <Tab.Screen name="About" component={About} />
-                    <Tab.Screen name="Education" component={Skill} />
-                    <Tab.Screen name="Skill" component={Skill} />
+                    <Tab.Screen name="Education" component={EducationTimeline} />
+                    <Tab.Screen name="Social Links" component={SocialLinks} />
 
                 </Tab.Navigator>
             </View>

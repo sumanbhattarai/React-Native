@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     title : {
         color : '#eeeeee',
         fontSize : 13,
+        fontFamily : 'ProximaNovaA-Light'
     },
     listDetails : {
         flex : 1,
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
     },
     detailText : {
         color : '#eeeeee' ,
-        fontSize : 13
+        fontSize : 13,
+        fontFamily : 'ProximaNovaA-Light'
     }
 })
