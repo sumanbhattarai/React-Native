@@ -10,7 +10,7 @@ const screenHeight = Math.round(Dimensions.get('window').height);
 export default class Introduction extends React.Component {
     state = {
         basicInfo  : [
-            { name : 'Nepali' , icon : faFlag },
+            { name : 'Nepalese' , icon : faFlag },
             { name : '15 July, 1999' , icon : faBirthdayCake},
             { name : '+977-9845696211' , icon : faPhone },
             { name : 'Narayangarh, Nepal' , icon : faMapMarkerAlt }
@@ -39,7 +39,7 @@ export default class Introduction extends React.Component {
                             <View style={styles.listDetails} key={index}>
                                 <Text style={styles.detailText}>
                                     <FontAwesomeIcon icon={el.icon} style={{color : '#eeeeee' , fontSize : 13}} />
-                                    &nbsp; {el.name}
+                                    &nbsp; &nbsp; &nbsp;  {el.name}
                                 </Text>
                             </View>
                         )
