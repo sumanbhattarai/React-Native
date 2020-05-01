@@ -10,9 +10,6 @@ export default class SplashScreen extends React.Component{
                 <View style={ styles.mainBox}>
                     <View></View>
                     <View>
-                        {/* <View style={styles.imageBox}>
-                            <Image style={styles.myImage} source={require('../assets/images/sumancartoon.jpg')} />
-                        </View> */}
                         <ImageAvatar/>                        
                         <View style={{marginTop : 20}}>
                             <ActivityIndicator size="small" color="#EEEEEE" />
