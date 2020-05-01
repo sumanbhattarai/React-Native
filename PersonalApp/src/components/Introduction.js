@@ -38,7 +38,7 @@ export default class Introduction extends React.Component {
                         return (
                             <View style={styles.listDetails} key={index}>
                                 <Text style={styles.detailText}>
-                                    <FontAwesomeIcon icon={el.icon} style={{color : '#eeeeee' , fontSize : 13}} />
+                                    <FontAwesomeIcon icon={el.icon} style={{color : '#eeeeee'}} size={ screenWidth > 330 ? 15 : 10} />
                                     &nbsp; &nbsp; &nbsp;  {el.name}
                                 </Text>
                             </View>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         // borderColor : '#eeeeee', 
         alignSelf : 'center' , 
         flexDirection : 'row',
-        height : 200 ,
+        height : screenWidth > 330 ? 200 : 180 ,
         marginTop : ( Platform.OS === "ios" ) ? 50 : 0
     },
 
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     },
     name : {
         color : '#eeeeee',
-        fontSize : 18,
+        fontSize : screenWidth > 330 ? 18 : 15 ,
         fontFamily : 'ProximaNovaA-Bold',
         marginTop  : 10
     },
@@ -89,11 +89,11 @@ const styles = StyleSheet.create({
         // borderWidth : 1, 
         justifyContent : 'center'  , 
         alignItems : 'flex-start',
-        paddingLeft : 60
+        paddingLeft : screenWidth > 330 ? 60 : 40
     },
     detailText : {
         color : '#eeeeee' ,
-        fontSize : 13,
+        fontSize : screenWidth > 330 ? 13 : 10,
         fontFamily : 'ProximaNovaA-Light'
     }
 })

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import { View , Text , StyleSheet} from 'react-native'
+import { View , Text , StyleSheet , Dimensions} from 'react-native'
 import Timeline from 'react-native-timeline-flatlist';
+
+
+const screenWidth = Math.round(Dimensions.get('window').width);
 
 export default class EducationTimeline extends Component {
     state = {
@@ -34,7 +37,7 @@ export default class EducationTimeline extends Component {
         return (
             <View style={styles.container}>
                  <Timeline 
-                    style={{ flex: 1 , paddingTop : 60}} 
+                    style={{ flex: 1 , marginTop : screenWidth > 330 ? 60 : 20}} 
                     lineColor = "#eeeeee"
                     circleColor = "#081232"
                     titleStyle={{color : "#081232" , fontFamily : 'ProximaNovaA-Light'}}
