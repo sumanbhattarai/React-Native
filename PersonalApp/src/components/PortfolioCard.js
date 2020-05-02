@@ -17,8 +17,9 @@ export default function(props){
                 <View style={styles.buttonView}>
                     <Button 
                         title="View Project" 
-                        titleStyle = {{ fontFamily : 'ProximaNovaA-Bold'}}
+                        titleStyle = {{ fontFamily : 'ProximaNovaA-Bold' , fontSize : 12}}
                         buttonStyle = {{ backgroundColor : "#081232" }}
+                        onPress = {()=>Linking.openURL(props.data.link)}
                     />
                 </View>
         </View>
@@ -51,7 +52,7 @@ const styles= StyleSheet.create({
         paddingBottom : 10
     },
     buttonView : {
-        width : 150,
+        width : 130,
         alignSelf : 'center'
     }
 })
