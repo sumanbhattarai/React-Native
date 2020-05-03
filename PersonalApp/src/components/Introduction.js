@@ -24,29 +24,21 @@ export default class Introduction extends React.Component {
                     <Text style={styles.name}>Suman Bhattarai</Text>
                     <Text style={styles.title}>Software Engineer</Text>
                 </View>
-                <View style={{ flex : 4  , flexDirection : 'column'}}>
-                    {/* <View style={styles.listDetails}>
-                        <Text style={styles.detailText}>
-                            <FontAwesomeIcon icon={faBirthdayCake} style={{color : '#eeeeee' , fontSize : 13}} />
-                            &nbsp; July 15
-                        </Text>
-                    </View> */}
-
-                    <View style={styles.listDetails}></View>
-
-                    {this.state.basicInfo.map((el , index)=>{
-                        return (
-                            <View style={styles.listDetails} key={index}>
-                                <Text style={styles.detailText}>
-                                    <FontAwesomeIcon icon={el.icon} style={{color : '#eeeeee'}} size={ screenWidth > 330 ? 15 : 10} />
-                                    &nbsp; &nbsp; &nbsp;  {el.name}
-                                </Text>
-                            </View>
-                        )
-                    })}
-
-                    <View style={styles.listDetails}></View>
-
+                <View style={{ flex : 4  , flexDirection : 'column' , alignItems :'center' }}>
+                    <View style={{  height : '100%' , position : 'absolute'}}>
+                        <View style={styles.listDetails}></View>
+                        {this.state.basicInfo.map((el , index)=>{
+                            return (
+                                <View style={styles.listDetails} key={index}>
+                                    <Text style={styles.detailText}>
+                                        <FontAwesomeIcon icon={el.icon} style={{color : '#eeeeee'}} size={ screenWidth > 330 ? 15 : 10} />
+                                        &nbsp; &nbsp; &nbsp;  {el.name}
+                                    </Text>
+                                </View>
+                            )
+                        })}
+                        <View style={styles.listDetails}></View>
+                    </View>
                 </View>
             </SafeAreaView>
         )
