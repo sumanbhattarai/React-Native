@@ -1,6 +1,7 @@
 import React from 'react'
 import {View , Text , StyleSheet, Dimensions , Linking } from 'react-native'
 import { Button } from 'react-native-elements'
+import { RFPercentage } from 'react-native-responsive-fontsize'
 
 
 const screenWidth = Math.round(Dimensions.get('window').width);
@@ -17,7 +18,7 @@ export default function(props){
                 <View style={styles.buttonView}>
                     <Button 
                         title="View Project" 
-                        titleStyle = {{ fontFamily : 'ProximaNovaA-Bold' , fontSize : 12}}
+                        titleStyle = {{ fontFamily : 'ProximaNovaA-Bold' , fontSize : RFPercentage(1.5)}}
                         buttonStyle = {{ backgroundColor : "#081232" }}
                         onPress = {()=>Linking.openURL(props.data.link)}
                     />
@@ -40,13 +41,13 @@ const styles= StyleSheet.create({
     title : {
         color : '#081232',
         fontFamily : 'ProximaNovaA-Bold',
-        fontSize : 17,
+        fontSize : RFPercentage(2.2),
         textAlign : 'center',
         paddingTop : 10,
         paddingBottom : 10
     },
     description : {
-        fontSize : 14 ,
+        fontSize : RFPercentage(1.8) ,
         fontFamily :'ProximaNovaA-Light',
         paddingTop : 10,
         paddingBottom : 10

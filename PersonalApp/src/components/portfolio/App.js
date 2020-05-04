@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {View , Text , StyleSheet} from 'react-native'
+import { RFPercentage } from 'react-native-responsive-fontsize'
 
 export default class App extends Component {
     render() {
@@ -7,7 +8,7 @@ export default class App extends Component {
             <View style={styles.container}>
                 <Text style={{
                     fontFamily : 'ProximaNovaA-Light',
-                    fontSize : 16,
+                    fontSize : RFPercentage(2),
                     padding : 60,
                     color : "#081232"
                 }}> 

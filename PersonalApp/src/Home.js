@@ -8,6 +8,7 @@ import HomeScreen from './screens/HomeScreen'
 import PortfolioScreen from './screens/PortfolioScreen'
 import BlogScreen from './screens/BlogScreen'
 import ContactScreen from './screens/ContactScreen'
+import { RFPercentage } from 'react-native-responsive-fontsize'
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -15,17 +16,16 @@ function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      activeColor="#ffffff"
-      barStyle={{ backgroundColor : '#202947'}}
+      activeColor="#4191FB"
+      barStyle={{ backgroundColor : '#202947' , height : '8%' , justifyContent :'center'}}
     >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: <Text style={{fontSize : RFPercentage(1.5) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}>HOME</Text>,
           tabBarIcon: ({ color }) => (
-            // <MaterialCommunityIcons name="home" color={color} size={26} />
-            <FontAwesomeIcon icon={ faHome } color={ color } style={{fontSize : 50}} />
+            <FontAwesomeIcon icon={ faHome } color={ color } size = { RFPercentage(2.5) } />
           ),
         }}
       />
@@ -33,9 +33,9 @@ function MyTabs() {
         name="Portfolio"
         component={PortfolioScreen}
         options={{
-          tabBarLabel: 'Portfolio',
+          tabBarLabel: <Text style={{fontSize : RFPercentage(1.3) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}> PORTFOLIO </Text>,
           tabBarIcon: ({ color }) => (
-            <FontAwesomeIcon icon={ faSuitcase } color={ color } style={{fontSize : 50}} />
+            <FontAwesomeIcon icon={ faSuitcase } color={ color } size = { RFPercentage(2.3)} />
           ),
         }}
       />
@@ -43,9 +43,9 @@ function MyTabs() {
         name="Blog"
         component={BlogScreen}
         options={{
-          tabBarLabel: 'Blog',
+          tabBarLabel: <Text style={{fontSize : RFPercentage(1.5) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}> BLOG </Text>,
           tabBarIcon: ({ color }) => (
-            <FontAwesomeIcon icon={faEdit} color = {color } style={{fontSize : 50}} />
+            <FontAwesomeIcon icon={faEdit} color = {color } size = { RFPercentage(2.5)} />
           ),
         }}
       />
@@ -53,9 +53,9 @@ function MyTabs() {
         name="Contact"
         component={ContactScreen}
         options={{
-          tabBarLabel: 'Contact',
+          tabBarLabel: <Text style={{fontSize : RFPercentage(1.5) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}> CONTACT </Text>,
           tabBarIcon: ({ color }) => (
-            <FontAwesomeIcon icon={faEnvelope} color = {color } style={{fontSize : 50}} />
+            <FontAwesomeIcon icon={faEnvelope} color = {color } size = { RFPercentage(2.5)} />
           ),
         }}
       />

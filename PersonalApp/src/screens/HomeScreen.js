@@ -18,9 +18,9 @@ export default class HomeScreen extends React.Component {
                 <Tab.Navigator   
                     tabBarOptions={{
                         activeTintColor : '#4191FB' ,
-                        inactiveTintColor : '#081232' ,
-                        labelStyle: { fontSize: RFPercentage(1.8)  , fontFamily : 'ProximaNovaA-Bold' },
-                        style: { backgroundColor: '#eeeeee'},
+                        inactiveTintColor : '#eeeeee' ,
+                        labelStyle: { fontSize: RFPercentage(1.5)  , fontFamily : 'ProximaNovaA-Bold' },
+                        style: { backgroundColor: '#081232'},
                         indicatorStyle : { backgroundColor :'#4191FB' }
                 }}>
                     <Tab.Screen name="About" component={About} />

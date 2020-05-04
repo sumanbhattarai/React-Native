@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import All from '../components/portfolio/All' 
 import Web from '../components/portfolio/Web'
 import App from '../components/portfolio/App'
+import { RFPercentage } from 'react-native-responsive-fontsize'
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -15,13 +16,13 @@ export default class HomeScreen extends React.Component {
         return(
             <SafeAreaView style={styles.container}>
                 <View style={{marginTop : height/22 , paddingBottom : 20}}>
-                    <Text style={{ fontFamily : 'ProximaNovaA-Bold' , color : '#eeeeee' , fontSize : 16 , textAlign : 'center'}}>Here are some of my works. </Text>
+                    <Text style={{ fontFamily : 'ProximaNovaA-Bold' , color : '#eeeeee' , fontSize : RFPercentage(2) , textAlign : 'center'}}>Here are some of my works. </Text>
                 </View>
                 <Tab.Navigator   
                     tabBarOptions={{
                         activeTintColor : '#4191FB' ,
                         inactiveTintColor : '#eeeeee' ,
-                        labelStyle: { fontSize: 12 , fontFamily : 'ProximaNovaA-Bold' },
+                        labelStyle: { fontSize: RFPercentage(1.8) , fontFamily : 'ProximaNovaA-Bold' },
                         style: { backgroundColor: '#081232' },
                         indicatorStyle : { backgroundColor :'#4191FB' }
                 }}>
