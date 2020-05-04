@@ -1,57 +1,53 @@
 import React, { Component } from 'react'
-import { View , Text , StyleSheet , Dimensions} from 'react-native'
+import { View , ScrollView , Text , StyleSheet , Dimensions} from 'react-native'
 import Timeline from 'react-native-timeline-flatlist';
+import { RFPercentage } from 'react-native-responsive-fontsize'
 
 
 const screenWidth = Math.round(Dimensions.get('window').width);
 
 export default class EducationTimeline extends Component {
-    state = {
-        data : [
-            {
-                
-                title: 'Software Engineering',
-                description:
-                  '2017- \nGandaki College of Engineering and Science',
-              },
-              { 
-                
-                title: 'Computer Science',
-                description:
-                  '2015-2016\nPrerana Science College',
-              },
-              {
-                
-                title: 'SLC',
-                description:
-                  '2015\nBhrikuti English Secondary School',
-              },
-              {
-                  title : 'DLE',
-                  description : 
-                    '2013\nBhrikuti English Secondary School'
-              }
-        ]
+    state={
+      data : [
+        { title : 'BE , Software Engineering' , time : '2017 - ' , description : 'Gandaki College of Engineering and Science'},
+        { title : '+2 , Computer Science' , time : '2015 - 2016' , description : 'Prerana Science College'},
+        { title : 'Grade 10 , SLC' , time : '2015' , description : 'Bhrikuti English Secondary School'},
+        { title : 'Grade 8 , DLE' , time : '2013 -' , description : 'Bhrikuti English Secondary School'}
+      ]
     }
     render() {
         return (
+          <ScrollView style={{backgroundColor : '#ffffff'}}>
             <View style={styles.container}>
-                 <Timeline 
-                    style={{ flex: 1 , marginTop : screenWidth > 330 ? 60 : 20}} 
-                    lineColor = "#eeeeee"
-                    circleColor = "#081232"
-                    titleStyle={{color : "#081232" , fontFamily : 'ProximaNovaA-Light'}}
-                    descriptionStyle={{color : "#081232" , fontFamily : 'ProximaNovaA-Light'}}
-                    data={this.state.data} 
-                />
+                <View style={{ marginTop : 20 }}>
+                  {
+                    this.state.data.map((el , index)=>{
+                      return(
+                        <View key={index}>
+                          <Text style={styles.title}>{el.title}</Text>
+                          <Text style={styles.description}>{el.time}</Text>
+                          <Text style={styles.description}>{el.description}{'\n'}</Text>
+                        </View>
+                      )
+                    })
+                  }
+                </View>
             </View>
+            </ScrollView>
         )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: 'white',
+      alignItems : 'center'
     },
+    title : {
+      fontFamily : 'ProximaNovaA-Bold',
+      fontSize : RFPercentage(2.5)
+    },
+    description : {
+      fontFamily : 'ProximaNovaA-Light',
+      fontSize : RFPercentage(1.8)
+    }
   });
