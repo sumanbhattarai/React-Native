@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { View , ScrollView , Text , StyleSheet , Dimensions} from 'react-native'
-import Timeline from 'react-native-timeline-flatlist';
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 
