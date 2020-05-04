@@ -44,10 +44,10 @@ const styles= StyleSheet.create({
     },
     findMe : {
         fontFamily : 'ProximaNovaA-Light',
-        fontSize : RFPercentage(2.3)
+        fontSize : RFPercentage(2)
     },
     socialLinks : {
-        fontSize  : RFPercentage(2.7),
+        fontSize  : RFPercentage(2),
         fontFamily : 'ProximaNovaA-Bold' ,
         color : '#081232' 
     }
