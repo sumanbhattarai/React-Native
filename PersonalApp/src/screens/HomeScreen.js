@@ -5,6 +5,8 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import About from '../components/About'
 import EducationTimeline from '../components/EducationTimeline'
 import SocialLinks from '../components/SocialLinks'
+import { RFPercentage } from "react-native-responsive-fontsize" 
+
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -15,7 +17,7 @@ export default class HomeScreen extends React.Component {
                 <Introduction/>
                 <Tab.Navigator   
                     tabBarOptions={{
-                        labelStyle: { fontSize: 12 , color : '#081232' , fontFamily : 'ProximaNovaA-Bold' },
+                        labelStyle: { fontSize: RFPercentage(1.8) , color : '#081232' , fontFamily : 'ProximaNovaA-Bold' },
                         style: { backgroundColor: '#eeeeee' },
                         indicatorStyle : { backgroundColor :'#081232' }
                 }}>
