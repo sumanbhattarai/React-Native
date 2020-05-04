@@ -1,5 +1,6 @@
 import React from 'react' ;
 import {View , ScrollView , Text , StyleSheet} from 'react-native' ;
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize" 
 
 export default function () {
     return(
@@ -18,7 +19,7 @@ export default function () {
 
 const styles = StyleSheet.create({
     textStyle : {
-        fontSize : 18 , 
+        fontSize : RFPercentage(2.5) , 
         fontFamily : 'ProximaNovaA-Light'
     },
     highlight : {

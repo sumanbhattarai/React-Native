@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import {View  , ScrollView, Dimensions, Text , StyleSheet } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faFacebook , faTwitter , faInstagram , faLinkedin , faGithub , faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize" 
 
-const screenWidth = Math.round(Dimensions.get('window').width);
+
+// const screenWidth = Math.round(Dimensions.get('window').width);
 
 export default class SocialLinks extends Component {
     state = {
@@ -19,17 +21,16 @@ export default class SocialLinks extends Component {
     render() {
         return (
             <ScrollView style={styles.container}>
-                <Text style={styles.findMe}>Do mail me at <Text style={{color : '#081232' , fontWeight : 'bold'}}>ersumanbhattarai@gmail.com</Text> for business purpose rather than other social medias.</Text>
-                <View style={{ alignSelf : 'center' , paddingTop : 20 }} >
+                <Text style={styles.findMe}>Do mail me at <Text style={{color : '#081232' , fontWeight : 'bold'}}>ersumanbhattarai@gmail.com</Text> for business purpose rather than other social medias. {"\n"}</Text>
+                <View style={{ alignSelf : 'center' }} >
                 {
                     this.state.socialLinks.map((el ,index)=>{
                         return (
-                            <View key={index} style={{ paddingBottom : 10 }}>
-                                <Text style={styles.socialLinks}> <FontAwesomeIcon icon={el.icon} size = { screenWidth > 330 ? 30 : 15} /> {el.username} </Text>
-                            </View>
+                                <Text key={index} style={styles.socialLinks}> <FontAwesomeIcon icon={el.icon} size = { RFPercentage(3)} /> {el.username} {"\n"} </Text> 
                         )
                     })
                 }
+                <Text>{"\n"}</Text>
                 </View>
             </ScrollView>
         )
@@ -39,15 +40,14 @@ export default class SocialLinks extends Component {
 const styles= StyleSheet.create({
     container : {
         backgroundColor : '#ffffff',
-        flex : 1 ,
-        padding: screenWidth > 330 ? 50 : 15 
+        padding: 20
     },
     findMe : {
         fontFamily : 'ProximaNovaA-Light',
-        fontSize : screenWidth > 330 ? 15 : 12
+        fontSize : RFPercentage(2.3)
     },
     socialLinks : {
-        fontSize  :screenWidth > 330 ? 17 : 12,
+        fontSize  : RFPercentage(2.7),
         fontFamily : 'ProximaNovaA-Bold' ,
         color : '#081232' 
     }

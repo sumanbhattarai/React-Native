@@ -3,6 +3,7 @@ import { View , Text, StyleSheet, Dimensions , SafeAreaView , Platform} from 're
 import ImageAvatar from './ImageAvatar' ;
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBirthdayCake , faFlag , faMapMarkerAlt , faPhone , faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
 const screenWidth = Math.round(Dimensions.get('window').width);
 const screenHeight = Math.round(Dimensions.get('window').height);
@@ -66,13 +67,15 @@ const styles = StyleSheet.create({
     },
     name : {
         color : '#eeeeee',
-        fontSize : screenWidth > 330 ? 18 : 15 ,
+        // fontSize : screenWidth > 330 ? 18 : 15 ,
+        fontSize : RFPercentage(2),
         fontFamily : 'ProximaNovaA-Bold',
         marginTop  : 10
     },
     title : {
         color : '#eeeeee',
-        fontSize : 13,
+        // fontSize : 13,
+        fontSize : RFPercentage(1.4),
         fontFamily : 'ProximaNovaA-Light'
     },
     listDetails : {
