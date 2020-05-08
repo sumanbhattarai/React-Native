@@ -11,7 +11,7 @@ export default class EducationTimeline extends Component {
         { title : 'BE , Software Engineering' , time : '2017 - ' , description : 'Gandaki College of Engineering and Science'},
         { title : '+2 , Computer Science' , time : '2015 - 2016' , description : 'Prerana Science College'},
         { title : 'Grade 10 , SLC' , time : '2015' , description : 'Bhrikuti English Secondary School'},
-        { title : 'Grade 8 , DLE' , time : '2013 -' , description : 'Bhrikuti English Secondary School'}
+        { title : 'Grade 8 , DLE' , time : '2013' , description : 'Bhrikuti English Secondary School'}
       ]
     }
     render() {
