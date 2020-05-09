@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { View , ScrollView , Text , StyleSheet , Dimensions} from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
 
 const screenWidth = Math.round(Dimensions.get('window').width);
@@ -23,7 +25,7 @@ export default class EducationTimeline extends Component {
                     this.state.data.map((el , index)=>{
                       return(
                         <View key={index}>
-                          <Text style={styles.title}>{el.title}</Text>
+                          <Text style={styles.title}> <FontAwesomeIcon icon={faGraduationCap} size={ RFPercentage(2.5)} /> {el.title}</Text>
                           <Text style={styles.description}>{el.time}</Text>
                           <Text style={styles.description}>{el.description}{'\n'}</Text>
                         </View>
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
     },
     title : {
       fontFamily : 'ProximaNovaA-Bold',
-      fontSize : RFPercentage(2.5)
+      fontSize : RFPercentage(2)
     },
     description : {
       fontFamily : 'ProximaNovaA-Light',

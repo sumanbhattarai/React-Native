@@ -19,7 +19,7 @@ export default function () {
 
 const styles = StyleSheet.create({
     textStyle : {
-        fontSize : RFPercentage(2.5) , 
+        fontSize : RFPercentage(2) , 
         fontFamily : 'ProximaNovaA-Light'
     },
     highlight : {

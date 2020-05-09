@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         // borderColor : '#eeeeee', 
         alignSelf : 'center' , 
         flexDirection : 'row',
-        aspectRatio : 3/1.5 ,
+        aspectRatio : 3/1.2 ,
         marginTop : ( Platform.OS === "ios" ) ? 50 : 0
     },
 
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     name : {
         color : '#eeeeee',
         // fontSize : screenWidth > 330 ? 18 : 15 ,
-        fontSize : RFPercentage(2.5),
+        fontSize : RFPercentage(2),
         fontFamily : 'ProximaNovaA-Bold',
         marginTop  : 10
     },
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     },
     detailText : {
         color : '#eeeeee' ,
-        fontSize : RFPercentage(1.7),
+        fontSize : RFPercentage(1.5),
         fontFamily : 'ProximaNovaA-Light'
     }
 })

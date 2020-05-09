@@ -41,7 +41,7 @@ const styles= StyleSheet.create({
     title : {
         color : '#081232',
         fontFamily : 'ProximaNovaA-Bold',
-        fontSize : RFPercentage(2.2),
+        fontSize : RFPercentage(2),
         textAlign : 'center',
         paddingTop : 10,
         paddingBottom : 10
