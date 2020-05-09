@@ -23,7 +23,7 @@ function MyTabs() {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarLabel: <Text style={{fontSize : RFPercentage(1.5) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}>HOME</Text>,
+          tabBarLabel: <Text style={{fontSize : RFPercentage(1.2) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}>HOME</Text>,
           tabBarIcon: ({ color }) => (
             <FontAwesomeIcon icon={ faHome } color={ color } size = { RFPercentage(2.5) } />
           ),
@@ -33,7 +33,7 @@ function MyTabs() {
         name="Portfolio"
         component={PortfolioScreen}
         options={{
-          tabBarLabel: <Text style={{fontSize : RFPercentage(1.3) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}> PORTFOLIO </Text>,
+          tabBarLabel: <Text style={{fontSize : RFPercentage(1.2) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}> PORTFOLIO </Text>,
           tabBarIcon: ({ color }) => (
             <FontAwesomeIcon icon={ faSuitcase } color={ color } size = { RFPercentage(2.3)} />
           ),
@@ -43,7 +43,7 @@ function MyTabs() {
         name="Blog"
         component={BlogScreen}
         options={{
-          tabBarLabel: <Text style={{fontSize : RFPercentage(1.5) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}> BLOG </Text>,
+          tabBarLabel: <Text style={{fontSize : RFPercentage(1.2) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}> BLOG </Text>,
           tabBarIcon: ({ color }) => (
             <FontAwesomeIcon icon={faEdit} color = {color } size = { RFPercentage(2.5)} />
           ),
@@ -53,7 +53,7 @@ function MyTabs() {
         name="Contact"
         component={ContactScreen}
         options={{
-          tabBarLabel: <Text style={{fontSize : RFPercentage(1.5) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}> CONTACT </Text>,
+          tabBarLabel: <Text style={{fontSize : RFPercentage(1.2) , fontFamily : 'ProximaNovaA-Bold' , fontWeight : 'bold'}}> CONTACT </Text>,
           tabBarIcon: ({ color }) => (
             <FontAwesomeIcon icon={faEnvelope} color = {color } size = { RFPercentage(2.5)} />
           ),

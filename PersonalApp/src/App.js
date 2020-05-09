@@ -13,7 +13,7 @@ export default class App extends React.Component{
             this.setState({
                 isLoading :  false
             })
-        } , 3000)
+        } , 1000)
     }
 
     render(){

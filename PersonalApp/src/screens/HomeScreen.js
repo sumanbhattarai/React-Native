@@ -19,7 +19,7 @@ export default class HomeScreen extends React.Component {
                     tabBarOptions={{
                         activeTintColor : '#4191FB' ,
                         inactiveTintColor : '#eeeeee' ,
-                        labelStyle: { fontSize: RFPercentage(1.8)  , fontFamily : 'ProximaNovaA-Bold' },
+                        labelStyle: { fontSize: RFPercentage(1.5)  , fontFamily : 'ProximaNovaA-Bold' },
                         style: { backgroundColor: '#081232'},
                         indicatorStyle : { backgroundColor :'#4191FB' }
                 }}>

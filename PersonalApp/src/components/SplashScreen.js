@@ -1,6 +1,7 @@
 import React from 'react' ;
 import {View , Text , StyleSheet , Image , ActivityIndicator , StatusBar} from 'react-native' ;
 import ImageAvatar from './ImageAvatar';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
 export default class SplashScreen extends React.Component{
     render(){
@@ -9,8 +10,8 @@ export default class SplashScreen extends React.Component{
                 <StatusBar backgroundColor="#081232" />
                 <View style={ styles.mainBox}>
                     <View></View>
-                    <View>
-                        <ImageAvatar/>                        
+                    <View style={{ width : '100%' , aspectRatio : 3/2.2 , justifyContent : 'center' , alignItems : 'center'}}>
+                        <ImageAvatar data="loadingScreen"/>                        
                         <View style={{marginTop : 20}}>
                             <ActivityIndicator size="small" color="#EEEEEE" />
                             <Text style={styles.loadingText}>Please wait ...</Text>
@@ -54,12 +55,14 @@ const styles = StyleSheet.create({
       color :  '#EEEEEE' ,
       textAlign : 'center' ,
       paddingTop : 20 ,
-      fontFamily : 'ProximaNovaA-Bold'
+      fontFamily : 'ProximaNovaA-Bold' ,
+      fontSize : RFPercentage(2)
     },
     footer : {
       color : '#EEEEEE' , 
     //   fontWeight : 'normal',
       paddingBottom : 30 ,
-      fontFamily : 'ProximaNovaA-Light'
+      fontFamily : 'ProximaNovaA-Light' ,
+      fontSize : RFPercentage(1.5)
     }
   });

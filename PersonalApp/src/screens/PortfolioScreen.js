@@ -16,7 +16,7 @@ export default class HomeScreen extends React.Component {
         return(
             <SafeAreaView style={styles.container}>
                 <View style={{marginTop : height/22 , paddingBottom : 20}}>
-                    <Text style={{ fontFamily : 'ProximaNovaA-Bold' , color : '#eeeeee' , fontSize : RFPercentage(2) , textAlign : 'center'}}>Here are some of my works. </Text>
+        <Text style={{ fontFamily : 'ProximaNovaA-Bold' , color : '#eeeeee' , fontSize : RFPercentage(2) , textAlign : 'center'}}> Your Portfolio is your wealth. </Text>
                 </View>
                 <Tab.Navigator   
                     tabBarOptions={{
