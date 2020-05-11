@@ -11,7 +11,7 @@ export default class SplashScreen extends React.Component{
                 <View style={ styles.mainBox}>
                     <View></View>
                     <View style={{ width : '100%' , aspectRatio : 3/2.2 , justifyContent : 'center' , alignItems : 'center'}}>
-                        <ImageAvatar data="loadingScreen"/>                        
+                        <ImageAvatar/>                        
                         <View style={{marginTop : 20}}>
                             <ActivityIndicator size="small" color="#EEEEEE" />
                             <Text style={styles.loadingText}>Please wait ...</Text>
