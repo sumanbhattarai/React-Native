@@ -16,13 +16,13 @@ export default class HomeScreen extends React.Component {
         return(
             <SafeAreaView style={styles.container}>
                 <View style={{marginTop : height/22 , paddingBottom : 20}}>
-        <Text style={{ fontFamily : 'ProximaNovaA-Bold' , color : '#eeeeee' , fontSize : RFPercentage(2) , textAlign : 'center'}}> Your Portfolio is your wealth. </Text>
+                    <Text style={{ fontFamily : 'ProximaNovaA-Bold' , color : '#eeeeee' , fontSize : RFPercentage(2) , textAlign : 'center'}}> Your Portfolio is your wealth. </Text>
                 </View>
                 <Tab.Navigator   
                     tabBarOptions={{
                         activeTintColor : '#4191FB' ,
                         inactiveTintColor : '#eeeeee' ,
-                        labelStyle: { fontSize: RFPercentage(1.8) , fontFamily : 'ProximaNovaA-Bold' },
+                        labelStyle: { fontSize: RFPercentage(1.5) , fontFamily : 'ProximaNovaA-Bold' },
                         style: { backgroundColor: '#081232' },
                         indicatorStyle : { backgroundColor :'#4191FB' }
                 }}>
