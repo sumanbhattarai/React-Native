@@ -140,7 +140,7 @@ export default class ContactScreen extends React.Component {
                             this.state.inputs.map((el , index)=>{
                                 return(
                                     <View key={index}>
-                                        <Text style={styles.name}>{'\n'}{el.name}</Text> 
+                                        <Text style={styles.name}>{'\n'}{el.name}{'\n'}</Text> 
                                         <TextInput 
                                             style={[styles.input , {height : el.multiline ? RFPercentage(15) : RFPercentage(7)}]} 
                                             multiline={el.multiline} placeholder={el.name} 
@@ -211,9 +211,10 @@ const styles = StyleSheet.create({
         color : '#081232'
     },
     error : {
-        fontFamily : 'ProximaNovaA-Light',
+        fontFamily : 'ProximaNovaA-Bold',
         fontSize : RFPercentage(1.3),
-        color : 'red',
-        textAlign : 'center'
+        color : '#F02849',
+        textAlign : 'center',
+        marginTop : 5 
     }
 })
