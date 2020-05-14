@@ -30,14 +30,101 @@ export default class ContactScreen extends React.Component {
         ]
     }
 
-    // handleChange = (e , index)=> {
-    //     const inputs = [...this.state.inputs] 
-    //     console.log(e.target.name)
+    handleChange = (index , newText) => {
+        const inputs = [...this.state.inputs]
+        inputs[index].value = newText
+        this.setState({
+            input : inputs
+        })
+    }
 
-    // }
+    buttonClick = ()=> {
+        const valid = this.validateData()
+        if(valid){
+            console.log('success')
+        } else {
+            console.log('fail')
+        }
+    }
 
-    handleChange = (newText , index) => {
-        console.log( newText , index)
+    validateData = ()=> {
+        const fullName = this.state.inputs[0].value
+        const email = this.state.inputs[1].value
+        const message = this.state.inputs[2].value
+
+        if(fullName === ''){
+            const inputs = [...this.state.inputs]
+            inputs[0].error = true
+            inputs[0].errorMesage = '* Full Name can\'t be blank.'
+            this.setState({
+                inputs : inputs
+            })
+            return false ;
+        } else if ( !(/^[a-zA-Z]+[ ]+[a-zA-Z ]+$/.test(fullName))){
+            const inputs = [...this.state.inputs]
+            inputs[0].error = true
+            inputs[0].errorMesage = '* Invalid Full Name'
+            this.setState({
+                inputs : inputs
+            })
+            return false
+        } else {
+            const inputs = [...this.state.inputs]
+            inputs[0].error = false
+            inputs[0].errorMesage = ''
+            this.setState({
+                inputs : inputs
+            })
+        }
+
+        if(email === ''){
+            const inputs = [...this.state.inputs]
+            inputs[1].error = true
+            inputs[1].errorMesage = '* Email can\'t be blank.'
+            this.setState({
+                inputs : inputs
+            })
+            return false ;
+        } else if ( !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))){
+            const inputs = [...this.state.inputs]
+            inputs[1].error = true
+            inputs[1].errorMesage = '* Invalid Email format.'
+            this.setState({
+                inputs : inputs
+            })
+            return false
+        } else {
+            const inputs = [...this.state.inputs]
+            inputs[1].error = false
+            inputs[1].errorMesage = ''
+            this.setState({
+                inputs : inputs
+            })
+        }
+
+        function countWords(str){
+            str = str.replace(/(^\s*)|(\s*$)/gi,"");
+            str = str.replace(/[ ]{2,}/gi," ");
+            str = str.replace(/\n /,"\n");
+            return str.split(' ').length;
+        }
+        if(countWords(message) < 3 ){
+            const inputs = [...this.state.inputs]
+            inputs[2].error = true
+            inputs[2].errorMesage = '* Message must have at least 3 words.'
+            this.setState({
+                inputs : inputs
+            })
+            return false
+        } else {
+            const inputs = [...this.state.inputs]
+            inputs[2].error = false
+            inputs[2].errorMesage = ''
+            this.setState({
+                inputs : inputs
+            })
+        }
+        return true
     }
 
     render(){
@@ -53,9 +140,15 @@ export default class ContactScreen extends React.Component {
                             this.state.inputs.map((el , index)=>{
                                 return(
                                     <View key={index}>
-                                        <Text style={styles.name}>{el.name}{'\n'}</Text> 
-                                        <TextInput style={[styles.input , {height : el.multiline ? RFPercentage(15) : RFPercentage(7)}]} multiline={el.multiline} placeholder={el.name} onChangeText={(index)=>this.handleChange} />
-                                        <Text style={styles.error}>{el.errorMesage}</Text>
+                                        <Text style={styles.name}>{'\n'}{el.name}</Text> 
+                                        <TextInput 
+                                            style={[styles.input , {height : el.multiline ? RFPercentage(15) : RFPercentage(7)}]} 
+                                            multiline={el.multiline} placeholder={el.name} 
+                                            onChangeText={(newText)=>this.handleChange(index , newText)} 
+                                        />
+                                        {
+                                            el.error ? <Text style={styles.error}>{el.errorMesage}</Text> : null
+                                        }
                                     </View>
                                 )
                             })
@@ -64,7 +157,8 @@ export default class ContactScreen extends React.Component {
                             <Button 
                                 title="Send Message" 
                                 titleStyle = {{ fontFamily : 'ProximaNovaA-Bold' , fontSize : RFPercentage(1.8) , textAlign : 'center'}}
-                                buttonStyle = {{ backgroundColor : "#081232" , height : RFPercentage(7) }} 
+                                buttonStyle = {{ backgroundColor : "#081232" , height : RFPercentage(7) }}
+                                onPress = {this.buttonClick} 
                             />
                         </View>
                     </View>
@@ -119,6 +213,7 @@ const styles = StyleSheet.create({
     error : {
         fontFamily : 'ProximaNovaA-Light',
         fontSize : RFPercentage(1.3),
-        color : 'red'
+        color : 'red',
+        textAlign : 'center'
     }
 })
