@@ -1,7 +1,8 @@
 import React from 'react'
-import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput , KeyboardAvoidingView} from 'react-native'
+import { SafeAreaView, View, ScrollView, Text, StyleSheet, TextInput , ActivityIndicator} from 'react-native'
 import {Button} from 'react-native-elements'
 import { RFPercentage } from 'react-native-responsive-fontsize'
+import database from '@react-native-firebase/database';
 
 export default class ContactScreen extends React.Component {
     state = {
@@ -27,7 +28,10 @@ export default class ContactScreen extends React.Component {
                 error : false,
                 errorMesage : ''
             }
-        ]
+        ],
+        isLoading : true,
+        buttonName : 'Send Message',
+        error : false
     }
 
     handleChange = (index , newText) => {
@@ -39,12 +43,47 @@ export default class ContactScreen extends React.Component {
     }
 
     buttonClick = ()=> {
+        this.setState({
+            buttonName : 'Send Message'
+        })
         const valid = this.validateData()
         if(valid){
-            console.log('success')
-        } else {
-            console.log('fail')
+            this.setState({
+                buttonName : 'Sending...'
+            })
+
+            database()
+            .ref('/UsersMessage/')
+            .push({
+                name: this.state.inputs[0].value,
+                email : this.state.inputs[1].value ,
+                message : this.state.inputs[2].value
+            })
+            .then(()=>{
+                this.setState({
+                    buttonName : 'Message Sent ! 😇 '  
+                })
+                this.resetInputs()
+            })
+            .catch(error =>{
+                this.setState({
+                    buttonName : 'Failed ! 😞' ,  
+                    error :  true
+                })
+            })
         }
+    }
+
+    resetInputs = ()=> {
+        const inputs = [...this.state.inputs]
+        inputs[0].value = ''
+        inputs[1].value = ''
+        inputs[2].value = ''
+        this.setState({
+            inputs : inputs
+        })
+        console.log('done')
+
     }
 
     validateData = ()=> {
@@ -144,7 +183,8 @@ export default class ContactScreen extends React.Component {
                                         <TextInput 
                                             style={[styles.input , {height : el.multiline ? RFPercentage(15) : RFPercentage(7)}]} 
                                             multiline={el.multiline} placeholder={el.name} 
-                                            onChangeText={(newText)=>this.handleChange(index , newText)} 
+                                            onChangeText={(newText)=>this.handleChange(index , newText)}
+                                            value={this.state.inputs[index].value} 
                                         />
                                         {
                                             el.error ? <Text style={styles.error}>{el.errorMesage}</Text> : null
@@ -155,12 +195,15 @@ export default class ContactScreen extends React.Component {
                         }
                         <View style={{ alignSelf : 'center' , width : '60%' , marginTop : 20}}>
                             <Button 
-                                title="Send Message" 
+                                title= { this.state.buttonName } 
                                 titleStyle = {{ fontFamily : 'ProximaNovaA-Bold' , fontSize : RFPercentage(1.8) , textAlign : 'center'}}
-                                buttonStyle = {{ backgroundColor : "#081232" , height : RFPercentage(7) }}
+                                buttonStyle = {{ backgroundColor : '#081232' , height : RFPercentage(7) }}
                                 onPress = {this.buttonClick} 
                             />
                         </View>
+                        {
+                            this.state.error ? <Text style={[styles.error , {fontSize : RFPercentage(2) , marginTop : 10}]}>* Something went wrong ! Try again later. </Text> : null
+                        }
                     </View>
                 </View>
                 </ScrollView>
@@ -191,7 +234,8 @@ const styles = StyleSheet.create({
         borderColor : '#202947',
         borderRadius : 25,
         width : '90%',
-        alignSelf : 'center'
+        alignSelf : 'center' ,
+        marginBottom : 20
     },
     name : {
         fontFamily : 'ProximaNovaA-Bold',
