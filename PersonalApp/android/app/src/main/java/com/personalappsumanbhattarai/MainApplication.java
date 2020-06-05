@@ -1,4 +1,4 @@
-package com.personalapp;
+package com.personalappsumanbhattarai;
 
 import android.app.Application;
 import android.content.Context;

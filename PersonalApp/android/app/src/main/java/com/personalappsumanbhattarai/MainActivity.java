@@ -1,4 +1,4 @@
-package com.personalapp;
+package com.personalappsumanbhattarai;
 
 import com.facebook.react.ReactActivity;
 
