@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     },
     headerTitle : {
         color : 'white',
-        fontSize : 20
+        fontSize : 20,
+        fontFamily : 'ProximaNovaA-Bold'
     }
 })

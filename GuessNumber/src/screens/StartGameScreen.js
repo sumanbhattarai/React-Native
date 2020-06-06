@@ -35,7 +35,7 @@ export default function StartGameScreen(props){
                     <Button
                         title = "Start Game"
                         color = {Colors.success}
-                        onPress={props.startGame}
+                        onPress={()=>props.startGame(selectedNumber)}
                     />
                 </View>
             </View>
@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
     },
     title : {
         fontSize : 20,
-        marginVertical : 20
+        marginVertical : 20,
+        fontFamily : 'ProximaNovaA-Bold'
     },
     inputContainer : {
         width : 300, 
@@ -113,11 +114,13 @@ const styles = StyleSheet.create({
         marginTop : 40
     },
     numberTitle : {
-        fontSize : 20
+        fontSize : 20,
+        fontFamily : 'ProximaNovaA-Light'
     },
     number : {
         fontSize : 40,
-        fontWeight : 'bold'
+        fontWeight : 'bold',
+        fontFamily : 'ProximaNovaA-Bold'
     },
     startGameButtonBox : {
         width : 200,
