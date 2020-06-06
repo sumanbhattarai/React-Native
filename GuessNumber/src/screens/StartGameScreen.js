@@ -1,17 +1,32 @@
-import React from 'react'
+import React  , { useState } from 'react'
 import { View , Text , Button , StyleSheet, TextInput } from 'react-native'
 import CardDesign from '../components/CardDesign'
+import Colors from '../constants/colors'
+import Input from '../components/Input'
 
 export default function StartGameScreen(){
+    const [enteredValue , setEnteredValue ] = useState('')
+
     return(
         <View style={styles.screen}>
             <Text style={styles.title}>Start a New Game !</Text>
             <CardDesign style={styles.inputContainer}>
                 <Text>Select a Number.</Text>
-                <TextInput placeholder="Enter a Number" />
+                <Input 
+                    style={styles.input} 
+                    keyboardType="number-pad"
+                    blurOnSubmit
+                    maxLength={2}
+                    onChangeText={el=>setEnteredValue(el.replace(/[^0-9]/g, ''))}
+                    value={enteredValue}
+                />
                 <View style={styles.buttonContainer}>
-                    <Button title="Reset" />
-                    <Button title="Confirm" />
+                    <View style={styles.buttonView}>
+                        <Button title="Reset" color={Colors.danger}/>
+                    </View>
+                    <View style={styles.buttonView}>
+                        <Button title="Confirm" color={Colors.success} />
+                    </View>
                 </View>
             </CardDesign>
         </View>
@@ -34,9 +49,15 @@ const styles = StyleSheet.create({
         padding : 20
         
     },
+    input : {
+        width : 100
+    },
     buttonContainer : {
         width :  '100%',
         flexDirection : 'row',
         justifyContent : 'space-around'
+    },
+    buttonView : {
+        width : 100
     }
 })
