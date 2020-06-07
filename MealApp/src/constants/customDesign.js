@@ -1,14 +1,15 @@
 
 const Color = {
-    primary : '#67D2E0',
-    dark : '#1F8A98' ,
-    darkest : '#030F11'
+    primary : '#1F8A98' ,
+    light : '#67D2E0' ,
+    white : 'white' ,
+    black : 'black'
 }
 
 const Font =  {
     bold : 'ProximaNovaA-Bold',
-    light : 'PoximaNovaA-Light',
+    light : 'ProximaNovaA-Light',
     thin : 'ProximaNovaA-Thin'
 }
 
-module.exports = { Color , Font} 
+export { Color , Font} 
