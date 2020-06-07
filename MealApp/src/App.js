@@ -1,11 +1,6 @@
 import React from 'react'
-import {View , Text} from 'react-native'
-import { Color , Font} from './constants/customDesign'
+import MealNavigation from './navigation/MealNavigation'
 
 export default function(){
-  return(
-    <View>
-        <Text style={{ color : Color.primary, fontFamily : Font.bold}}>App Screen</Text>
-    </View>
-  )
+    return <MealNavigation/>
 }
