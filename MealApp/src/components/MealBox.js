@@ -6,6 +6,7 @@ export default function (props){
     return(
         <TouchableOpacity
             activeOpacity={0.8}
+            onPress={()=>props.onClick(props.data.id)}
         >
             <View style={styles.container}>
                 <Image source={{uri : props.data.imageUrl }} style={{height : 180 , width : '100%'}} />
@@ -26,8 +27,8 @@ export default function (props){
 
 const styles=StyleSheet.create({
     container : {
-        margin : 10 ,
-        height : 250 ,
+        margin : 20 ,
+        height : 250
     },
     infoBox : {
         height : 70,

@@ -3,7 +3,8 @@ const Color = {
     primary : '#1F8A98' ,
     light : '#67D2E0' ,
     white : 'white' ,
-    black : 'black'
+    black : 'black' ,
+    yellow : 'yellow'
 }
 
 const Font =  {

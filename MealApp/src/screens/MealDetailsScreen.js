@@ -1,16 +1,41 @@
-import React from 'react'
-import {View , Text, Button} from 'react-native'
+import React ,  {useState} from 'react'
+import {View , Text, Button , StyleSheet , TouchableOpacity } from 'react-native'
+import { Color , Font } from '../constants/customDesign'
+import { Meals } from '../data/Dummy-data'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function(props){
+  const { mealId } = props.route.params
+  const mealDetail = Meals.find(el=>el.id === mealId)
+  const [ isStarClick , setStarClick ] = useState(false)
+
+  const toggleStarClick = ()=> {
+    setStarClick( startClick => !startClick )
+  }
+  props.navigation.setOptions({
+    title : mealDetail.title,
+    headerRight : ()=> (
+      <TouchableOpacity 
+        style={styles.icon}
+        onPress={toggleStarClick}
+      >
+          <FontAwesomeIcon 
+              icon={faStar} 
+              color={ isStarClick ? Color.yellow : Color.white } 
+          />
+      </TouchableOpacity>
+    )
+  })
   return(
     <View>
-        <Text>MealDetails Screen</Text>
-        <Button
-          title="Go back"
-          onPress={()=>{
-            props.navigation.popToTop()
-          }}
-        />
+        <Text>{mealDetail.title}</Text>
     </View>
   )
 }
+
+const styles=StyleSheet.create({
+  icon : {
+    marginRight : 20
+  }
+})

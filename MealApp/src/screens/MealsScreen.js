@@ -13,7 +13,14 @@ const MealsScreen = props => {
   })
 
   const renderMeals = (itemData)=>{
-      return <MealBox data={itemData.item}/>
+      return <MealBox 
+                data={itemData.item}
+                onClick={(id)=>{
+                  props.navigation.navigate('MealDetails' , {
+                    mealId : id
+                  })
+                }}
+              />
   }
   return(
     <FlatList 
