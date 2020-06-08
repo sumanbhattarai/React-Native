@@ -1,16 +1,16 @@
-import 'react-native-gesture-handler'
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer } from '@react-navigation/native'
 import CategoriesScreen from '../screens/CategoriesScreen'
 import MealsScreen from '../screens/MealsScreen'
 import MealDetailsScreen from '../screens/MealDetailsScreen'
 import {Color , Font} from '../constants/customDesign'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 const Stack = createStackNavigator()
-export default function(){
+export default function(props){
     return(
-        <NavigationContainer>
             <Stack.Navigator
                 screenOptions={{
                     headerStyle : {
@@ -24,7 +24,22 @@ export default function(){
             >
                 <Stack.Screen 
                     name="Categories" 
-                    component={CategoriesScreen} 
+                    component={CategoriesScreen}
+                    options={{
+                        headerLeft : () => (
+                            <TouchableOpacity
+                                style={{marginLeft : 20}}
+                                onPress={()=>{
+                                    props.navigation.openDrawer()
+                                }}
+                            >
+                                <FontAwesomeIcon 
+                                    icon={faBars}
+                                    color={Color.white}  
+                                />
+                            </TouchableOpacity>
+                          )
+                    }}
                 />
                 <Stack.Screen 
                     name="Meals" 
@@ -35,7 +50,6 @@ export default function(){
                     component={MealDetailsScreen}
                 />
             </Stack.Navigator>
-        </NavigationContainer>
     )
 }
 

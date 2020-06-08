@@ -30,6 +30,10 @@ export default function(props){
   return(
     <View>
         <Text>{mealDetail.title}</Text>
+        <Text>{mealDetail.affordability}</Text>
+        <Text>{mealDetail.complexity}</Text>
+        <Text>{mealDetail.duration}</Text>
+        <Text>{mealDetail.instructions}</Text>
     </View>
   )
 }

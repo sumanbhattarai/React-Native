@@ -1,6 +1,6 @@
 import React from 'react'
-import MealNavigation from './navigation/MealNavigation'
+import DrawerNavigation from './navigation/DrawerNavigation'
 
 export default function(){
-    return <MealNavigation/>
+    return <DrawerNavigation/>
 }
