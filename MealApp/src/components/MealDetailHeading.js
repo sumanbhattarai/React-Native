@@ -5,7 +5,7 @@ import { Font , Color } from '../constants/customDesign'
 export default function(props){
     return (
         <View style={styles.headingBox}>
-            <Text style={styles.heading}>{props.children}</Text>
+            <Text style={{...styles.heading, ...props.style}}>{props.children}</Text>
         </View>
     )
 }
