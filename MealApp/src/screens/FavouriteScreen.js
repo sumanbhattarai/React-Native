@@ -1,10 +1,11 @@
 import React from 'react'
 import {View , Text, Button , FlatList} from 'react-native'
-import {Meals} from '../data/Dummy-data'
 import MealBox from '../components/MealBox'
+import { useSelector } from 'react-redux'
+import { Font } from '../constants/customDesign'
 
 export default function (props) {
-  const favData = Meals.filter(el=>el.id=== 'm1' || el.id==='m2')
+  const favData = useSelector(state=>state.meals.favouriteMeals)
 
   const renderFav = itemData => {
     return(
@@ -18,10 +19,20 @@ export default function (props) {
       />
     )
   }
-  return(
-    <FlatList
-      data={favData}
-      renderItem={renderFav}
-    />
-  )
+  if(favData.length >= 1)
+  {
+    return(
+      <FlatList
+        data={favData}
+        renderItem={renderFav}
+      />
+    )
+  } else {
+    return(
+      <View style={{ flex : 1 , justifyContent : 'center', alignItems : 'center'}}>
+        <Text style={{ fontFamily : Font.bold , fontSize : 12}}>No any favourite meals yet.</Text>
+      </View>
+    )
+  }
+    
 }

@@ -8,7 +8,7 @@ const MealsScreen = props => {
   const { catId } = props.route.params
   const selectedCategory = Categories.find(el=> el.id === catId)
 
-  const meals = useSelector(state=> state.meals.meals)
+  const meals = useSelector(state=> state.meals.filteredMeals)
   const selectedMeals = meals.filter(el=>el.categoryId.indexOf(catId)>=0)
 
   props.navigation.setOptions({

@@ -1,19 +1,27 @@
 import React ,  {useState} from 'react'
 import {View , Text, Image , StyleSheet , ScrollView , TouchableOpacity } from 'react-native'
 import { Color , Font } from '../constants/customDesign'
-import { Meals } from '../data/Dummy-data'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faStar , faHandPointRight  , faTimesCircle , faCheckCircle} from '@fortawesome/free-solid-svg-icons'
-
+import { useSelector , useDispatch } from 'react-redux'
+import { toggleFavourite } from '../store/actions/meals'
 import MealDetailHeading from '../components/MealDetailHeading'
 
 export default function(props){
   const { mealId } = props.route.params
-  const mealDetail = Meals.find(el=>el.id === mealId)
-  const [ isStarClick , setStarClick ] = useState(false)
+  const meals = useSelector(state=>state.meals.meals)
+  const favMeals = useSelector(state=>state.meals.favouriteMeals)
+  const dispatch = useDispatch()
+  const mealDetail = meals.find(el=>el.id === mealId)
+
+  // return boolean this item is in fav list or not.
+  const isFav = favMeals.findIndex(el=>el.id === mealDetail.id) >=0
+
+  const [ isStarClick , setStarClick ] = useState(isFav)
 
   const toggleStarClick = ()=> {
     setStarClick( startClick => !startClick )
+    dispatch(toggleFavourite(mealId))
   }
   props.navigation.setOptions({
     title : mealDetail.title,

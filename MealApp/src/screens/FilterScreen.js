@@ -2,14 +2,24 @@ import React , {useState , useEffect} from 'react'
 import {View , Text , StyleSheet , Switch} from 'react-native'
 import MealDetailHeading from '../components/MealDetailHeading'
 import { Color , Font} from '../constants/customDesign'
+import { useDispatch} from 'react-redux'
+import { toggleFilter } from '../store/actions/meals'
+
 
 export default function(){
   const [ chooseVegeterian , setVegeterian] = useState(false)
   const [ chooseLactoseFree , setLactoseFree] = useState(false)
   const [ chooseGlutenFree , setGlutenFree] = useState(false)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-      console.log( chooseVegeterian , chooseLactoseFree , chooseGlutenFree)
+      dispatch(toggleFilter(
+        {
+          selectVegeterian : chooseVegeterian ,
+          selectLactoseFree : chooseLactoseFree,
+          selectGlutenFree : chooseGlutenFree
+        }
+      ))
   })
   const RenderFilter = props => {
     return(
