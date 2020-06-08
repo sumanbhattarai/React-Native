@@ -4,7 +4,7 @@ const Color = {
     light : '#67D2E0' ,
     white : 'white' ,
     black : 'black' ,
-    yellow : 'yellow'
+    yellow : '#FFD800'
 }
 
 const Font =  {
