@@ -1,12 +1,4 @@
 import React from 'react'
-import { View , Text } from 'react-native'
+import StackNavigation from './navigation/StackNavigation'
 
-export default function(){
-  return(
-    <View>
-      <Text>
-        main screen
-      </Text>
-    </View>
-  )
-}
+export default () => <StackNavigation/>
