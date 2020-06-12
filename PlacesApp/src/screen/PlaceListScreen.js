@@ -1,10 +1,14 @@
 import React from 'react'
-import { View , Text , StyleSheet , TouchableOpacity, ColorPropType } from 'react-native'
+import { View , Text , StyleSheet , TouchableOpacity, FlatList } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Color } from '../constants/constants'
+import { useSelector } from 'react-redux'
+import PlacesList from '../components/PlacesList'
+
 
 export default function(props){
+    const placesList = useSelector(state=> state.placesReducer.places)
 
     //adding plus icon on the right side of the screen
     props.navigation.setOptions({
@@ -20,10 +24,23 @@ export default function(props){
             </TouchableOpacity>
         )
     })
+
+    const renderPlaces = dataItem => {
+        return <PlacesList 
+                    data={dataItem.item}
+                    onClick={()=>{
+                        props.navigation.navigate('Place Detail', {
+                            placeId : dataItem.item.id
+                        })
+                    }}
+                />
+    }
+
     return(
-        <View>
-            <Text>Place List Screen</Text>
-        </View>
+        <FlatList
+            data={placesList}
+            renderItem={renderPlaces}
+        />
     )
 }
 
