@@ -8,7 +8,7 @@ export default function(props){
             style={styles.container}
             onPress={props.onClick}
         >
-            <Image style={styles.image} source={{uri : props.data.image}} />
+            <Image style={styles.image} source={{ uri : props.data.src}} />
             <View style={styles.info}>
                 <Text style={styles.title}>{props.data.title}</Text>
                 <Text style={styles.address}>{props.data.address}</Text>
@@ -19,10 +19,11 @@ export default function(props){
 
 const styles = StyleSheet.create({
     container : {
-        margin : 10,
+        margin : 20,
         flexDirection : 'row',
         borderBottomWidth : 1,
-        borderBottomColor : Color.gray
+        borderBottomColor : Color.gray,
+        padding : 5
         // borderWidth : 1 ,
         // borderColor : 'red'
     },

@@ -8,7 +8,7 @@ const initialState = {
 export default function ( state = initialState , action){
     switch (action.type){
         case ADD_PLACE : 
-            const newPlace = new Place( new Date().toString() , action.placeData.title)
+            const newPlace = new Place( new Date().toString() , action.placeData.title , action.placeData.address , action.placeData.src)
             return {
                 ...initialState ,
                 places : state.places.concat(newPlace)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View , Text , StyleSheet , TouchableOpacity, FlatList } from 'react-native'
+import { View , Text , StyleSheet , TouchableOpacity, FlatList , Platform } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Color } from '../constants/constants'
@@ -19,7 +19,7 @@ export default function(props){
             >
                 <FontAwesomeIcon 
                     icon={faPlus}
-                    color={Color.primary}
+                    color={Platform.OS === 'ios' ? Color.primary  : Color.white}
                 />
             </TouchableOpacity>
         )
