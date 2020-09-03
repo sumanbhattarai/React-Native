@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput } from 'react-native';
+import { View, Text, Image, TextInput, ScrollView } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 
 import styles from './styles';
 import ScrollCard from '../../components/ScrollCard';
 import { categories, trending } from './utils';
-import { ScrollView } from 'react-native-gesture-handler';
 
 interface HomeProp {}
 
